@@ -205,7 +205,8 @@ def StellaAPI_Set_SLA_VM():
         os.seteuid(0)
 
     # execute SLA setting script
-    cmd_str = './insert_sla.sh' + ' ' + instance_name + ' ' + sla_option + ' ' + sla_value
+    sh_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'insert_sla.sh')
+    cmd_str = sh_path + ' ' + instance_name + ' ' + sla_option + ' ' + sla_value
     print(cmd_str)
     os.system(cmd_str)
 
